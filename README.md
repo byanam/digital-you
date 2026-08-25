@@ -1,5 +1,7 @@
 # Digital You
 
+> 🌐 **Live Demo:** [https://byanam.github.io/digital-you/](https://byanam.github.io/digital-you/)
+
 Turn two phone photos — one front-on, one profile — into a realistic, rotatable
 3D human avatar in the browser.
 
