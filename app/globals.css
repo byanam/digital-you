@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #09090b;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+}
+
+body {
+  color: #f4f4f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* Keep the 3D viewport from fighting the browser for touch gestures. */
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+::selection {
+  background: rgba(138, 180, 255, 0.28);
+}
+
+@layer utilities {
+  .hairline {
+    border-color: var(--hairline);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--hairline);
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .safe-t {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-b {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Apple-ish frosted panel */
+  .panel {
+    background: rgba(20, 20, 24, 0.72);
+    backdrop-filter: saturate(160%) blur(20px);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
+    border: 1px solid var(--hairline);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Very soft radial vignette used behind hero + viewer */
+  .aura {
+    background:
+      radial-gradient(
+        60% 50% at 50% 32%,
+        rgba(138, 180, 255, 0.1) 0%,
+        rgba(138, 180, 255, 0) 70%
+      ),
+      radial-gradient(
+        40% 40% at 78% 68%,
+        rgba(255, 182, 138, 0.07) 0%,
+        rgba(255, 182, 138, 0) 70%
+      );
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      rgba(244, 244, 245, 0.45) 0%,
+      rgba(244, 244, 245, 1) 50%,
+      rgba(244, 244, 245, 0.45) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
